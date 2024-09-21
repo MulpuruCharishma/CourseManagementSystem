@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<title>View All Instructors</title>
+<style>
+body {
+    background-image: url('https://i.pinimg.com/564x/a1/73/79/a173793c845f75c2eb18092e1344af31.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+h3 {
+    color: #333;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+table, th, td {
+    border: 1px solid #666;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+td {
+    background-color: #f2f2f2;
+}
+
+h:form {
+    display: inline;
+}
+
+h:commandLink {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+h:commandLink:hover {
+    text-decoration: underline;
+}
+
+center {
+    margin-top: 50px;
+}
+</style>
+</h:head> 
+<body>
+
+<h3 align ="center"><u>View all Instructors</u> </h3>
+<center>
+
+<h:dataTable value="#{insbean.inslist}" var="ins" border="1">
+<h:column>
+<f:facet name="header">ID</f:facet>
+#{ins.id}
+</h:column>
+<h:column>
+<f:facet name="header">Name</f:facet>
+#{ins.name}
+</h:column>
+
+<h:column>
+<f:facet name="header">Gender</f:facet>
+#{ins.gender}
+</h:column>
+<h:column>
+<f:facet name="header">Department</f:facet>
+#{ins.department}
+</h:column>
+
+<h:column>
+<f:facet name="header">Email</f:facet>
+#{ins.email}
+</h:column>
+<h:column>
+<f:facet name="header">Contact</f:facet>
+#{ins.contact}
+</h:column>
+
+<h:column>
+<f:facet name="header">Action</f:facet>
+<h:form>
+<h:commandLink value="Delete" action="#{insbean.delete(ins.id)}"/>
+</h:form>
+</h:column>
+
+</h:dataTable>
+</center>
+</body> 
+</html>

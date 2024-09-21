@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<h:head>
+    <title>Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/564x/c2/64/c6/c264c6bf32bb09eb10e84147659b75b8.jpg'); /* Replace with your image URL */
+            background-size: cover; /* Cover the entire page */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-attachment: fixed; /* Fix the background */
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        h\:form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px); /* Adjust height as needed */
+        }
+
+        h\:panelGrid {
+            background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+            border: 1px solid #ddd; /* Light border around the form */
+            padding: 20px;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            width: 80%;
+            max-width: 600px; /* Maximum width for larger screens */
+        }
+
+        h\:outputLabel {
+            background-color: #e9ecef; /* Light grey background for labels */
+            padding: 8px 12px;
+            border-radius: 4px; /* Rounded corners for the label box */
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block; /* Block display for labels */
+            font-size: 1em; /* Adjust font size as needed */
+        }
+
+        h\:inputText, h\:inputSecret {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd; /* Light border */
+            border-radius: 4px; /* Rounded corners */
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        h\:inputText:focus, h\:inputSecret:focus {
+            border-color: #007bff; /* Blue border on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        h\:message {
+            color: red;
+            font-size: 0.9em; /* Slightly smaller font size for messages */
+        }
+
+        h\:commandButton {
+            background-color: #007bff; /* Blue background */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px; /* Rounded corners */
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-top: 10px; /* Margin on top of the button */
+        }
+
+        h\:commandButton:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        h\:commandButton:active {
+            background-color: #004080; /* Even darker blue when clicked */
+        }
+    </style>
+</h:head> 
+<body>
+
+<h3><u>Admin Login</u></h3>
+
+<center>
+    <h:form>
+        <h:panelGrid columns="3" cellpadding="5">
+            <h:outputLabel for="username" value="Enter Username"/>
+            <h:inputText id="username" validatorMessage="Username length must be in between 3 and 30" value="#{adminbean.username}">
+                <f:validateLength minimum="3" maximum="30"/>
+            </h:inputText>
+            <h:message for="username" style="color:red"/>
+
+            <h:outputLabel for="password" value="Enter Password"/>
+            <h:inputSecret id="password" validatorMessage="Password length must be in between 5 and 30" value="#{adminbean.password}">
+                <f:validateLength minimum="5" maximum="30"/>
+            </h:inputSecret>
+            <h:message for="password" style="color:red"/>
+
+            <h:outputLabel for="login"/>
+            <h:commandButton id="login" class="button" value="Login" action="#{adminbean.validateadminlogin()}"/>
+            <h:message for="login"/>
+        </h:panelGrid>
+    </h:form>
+</center>
+
+</body> 
+</html>

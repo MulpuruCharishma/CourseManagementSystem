@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head> 
+<title>Update Instructor</title>
+<style>
+body {
+    background-image: url('https://i.pinimg.com/564x/7b/01/8d/7b018d3a6b471aac51f8f73a5e411474.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+h3 {
+    color: #333;
+}
+
+h:form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h:panelGrid {
+    width: 50%;
+}
+
+h:outputLabel {
+    font-weight: bold;
+    color: #333;
+}
+
+h:inputText, h:inputSecret {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+h:commandButton {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+h:commandButton:hover {
+    background-color: #4cae4c;
+}
+
+h:message {
+    font-size: 12px;
+}
+</style>
+</h:head>
+<body> 
+
+<h3 align="center"><u>Update Instructor</u></h3>
+
+<center>
+<h:form>
+<h:panelGrid columns="3" cellpadding="5">
+    <h:outputLabel for="id" value="Enter ID" />
+    <h:inputText id="id" required="true" requiredMessage="Enter ID" value="#{insbean.id}"/>
+    <h:message for="id" style="color:red"/>
+
+    <h:outputLabel for="name" value="Enter Name" />
+    <h:inputText id="name" required="true" requiredMessage="Enter Name" value="#{insbean.name}"/>
+    <h:message for="name" style="color:red"/>
+
+    <h:outputLabel for="password" value="Enter Password" />
+    <h:inputSecret id="password" required="true" requiredMessage="Enter Password" value="#{insbean.password}"/>
+    <h:message for="password" style="color:red"/>
+
+    <h:outputLabel for="contact" value="Enter Contact" />
+    <h:inputText id="contact" required="true" requiredMessage="Enter Contact" validatorMessage="Contact No must contain 10 digits only" value="#{insbean.contact}">
+        <f:validateRegex pattern="[6789][0-9]{9}"/>
+    </h:inputText>
+    <h:message for="contact" style="color:red"/>
+
+    <h:outputLabel for="update"/>
+    <h:commandButton id="update" styleClass="button" value="Update" action="#{insbean.update()}"/>
+    <h:message for="update"/>
+</h:panelGrid>
+</h:form>
+</center>
+</body> 
+</html>

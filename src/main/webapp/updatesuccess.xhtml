@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<title>Update Success</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&amp;700&amp;display=swap');
+
+body {
+    background-image: url('https://i.pinimg.com/564x/a1/73/79/a173793c845f75c2eb18092e1344af31.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h:outputText {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: block;
+    color: #2ecc71;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h:commandLink {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+h:commandLink:hover {
+    background-color: #4cae4c;
+    transform: scale(1.05);
+}
+
+h:form {
+    display: inline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adding some box shadow for better aesthetics */
+h:outputText {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+/* Adding a hover effect to the output text */
+h:outputText:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.02);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+</style>
+</h:head> 
+<body> 
+<h:outputText value="Instructor Updated Successfully" style='color:green'/> <br/>
+<h:form>
+<h:commandLink action="viewallinstructors" value="Back"/>
+</h:form>
+</body> 
+</html>

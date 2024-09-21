@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<h:head>
+    <title>Course Management System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://e0.pxfuel.com/wallpapers/52/336/desktop-wallpaper-online-courses-for-writers-the-ultimate-course-guide-for-writers-online-learning.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h3 {
+            text-align: center;
+            color: #222;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .navbar {
+          
+            text-align: center;
+        }
+
+        .navbar .button {
+            color: white; /* Text color of the button */
+            background-color: #FF69B4; /* Pink background color */
+            border: none; /* Remove border */
+            padding: 14px 20px; /* Padding inside the button */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Font size */
+            margin: 0 10px; /* Space between buttons */
+            border-radius: 5px; /* Rounded corners */
+            text-align: center; /* Center text */
+            display: inline-block; /* Display as an inline-block element */
+            transition: background-color 0.3s; /* Smooth background color transition */
+        }
+
+        .navbar .button:hover {
+            background-color: #FF1493; /* Lighter pink color on hover */
+        }
+    </style>
+</h:head> 
+<body> 
+
+<h3>Course Management System</h3>
+
+<div class="navbar">
+     <h:form>
+        <h:commandLink action="index" value="Home" styleClass="button"/>
+        <h:commandLink action="adminlogin" value="Admin Login" styleClass="button"/>
+        <h:commandLink action="stulogin" value="Student Login" styleClass="button"/>
+        <h:commandLink action="inslogin" value="Instructor Login" styleClass="button"/>
+        
+    </h:form>
+    
+</div>
+
+</body> 
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>View All Students</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/564x/64/44/0f/64440f0a205fd1d48d994a21bdee1de4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: lightgrey; /* Fallback color */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+        }
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .navbar li {
+            float: left;
+        }
+        .navbar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar li a:hover {
+            background-color: #111;
+        }
+        h3 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</h:head>
+<body>
+    <ul class="navbar">
+        <li><a href="stuhome.jsp">Home</a></li>
+        <li><a href="viewallcourses.jsf">View all Courses</a></li>
+        <li><a href="updatestd.jsf">Update Student</a></li>
+        <li><a href="stulogout.jsp">Logout</a></li>
+    </ul>
+    <div class="container">
+        <h3><u>View all Students</u></h3>
+        <center>
+            Total Students=#{adminbean.getstucount()}
+            <h:dataTable value="#{stdbean.stdlist}" var="std" border="1">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{std.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    #{std.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{std.gender}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Department</f:facet>
+                    #{std.department}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    #{std.email}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Contact</f:facet>
+                    #{std.contact}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Image</f:facet>
+                    <h:graphicImage value="images/#{std.imagedata}" width="100"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:form>
+                        <h:commandLink value="Delete" action="#{stdbean.delete(std.id)}"/>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+        </center>
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<title>View All Courses</title>
+<style>
+    body {
+        background-image: url('https://i.pinimg.com/564x/79/63/95/7963959f434f2abf71a340d069412bdf.jpg');
+        background-size: cover;
+        background-position: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    h3 {
+        color: #000;
+        margin-top: 20px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    center {
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 20px;
+        border-radius: 15px;
+        width: 60%;
+        margin: 0 auto;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    h:dataTable {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        font-weight: bold;
+    }
+
+    h:dataTable th, h:dataTable td {
+        padding: 15px 20px;
+        text-align: left;
+        font-size: 16px;
+    }
+
+    h:dataTable th {
+        background-color: #34495e;
+        color: white;
+        font-weight: bold;
+        border-bottom: 3px solid #ecf0f1;
+    }
+
+    h:dataTable tr {
+        background-color: #f8f9fa;
+        font-weight: bold;
+    }
+
+    h:dataTable tr:nth-child(even) {
+        background-color: #e9ecef;
+    }
+
+    h:dataTable tr:hover {
+        background-color: #dcdde1;
+        color: #2c3e50;
+        font-weight: bold;
+    }
+
+    h:dataTable td {
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    h:commandLink {
+        color: #e74c3c;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    h:commandLink:hover {
+        color: #c0392b;
+        text-decoration: underline;
+    }
+</style>
+</h:head> 
+<body bgcolor="lightgrey">
+<h3><u>View All Courses</u></h3>
+<center>
+
+<h:dataTable value="#{coursebean.courselist}" var="course" border="1">
+    <h:column>
+        <f:facet name="header">ID</f:facet>
+        #{course.id}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Name</f:facet>
+        #{course.name}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Course Code</f:facet>
+        #{course.coursecode}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Department</f:facet>
+        #{course.department}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Action</f:facet>
+        <h:form>
+            <h:commandLink value="Delete" action="#{coursebean.delete(course.id)}"/>
+        </h:form>
+    </h:column>
+</h:dataTable>
+</center>
+</body> 
+</html>

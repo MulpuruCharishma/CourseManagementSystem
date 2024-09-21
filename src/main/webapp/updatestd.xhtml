@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<title>Update Student</title>
+<style>
+    body {
+        background-image: url('https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-winter-holiday-education-blue-background-minimalistic-style-poster-banner-background-image_186804.jpg');
+        background-size: cover;
+        background-position: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    h3 {
+        color: #000;
+        margin-top: 20px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    center {
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 20px;
+        border-radius: 15px;
+        width: 50%;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    h:panelGrid {
+        width: 100%;
+    }
+
+    h:outputLabel {
+        font-weight: bold;
+        color: #333;
+        padding-right: 10px;
+    }
+
+    h:inputText, h:inputSecret {
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    h:commandButton.button {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    h:commandButton.button:hover {
+        background-color: #2980b9;
+    }
+
+    h:message {
+        font-size: 12px;
+        font-weight: bold;
+    }
+</style>
+</h:head> 
+<body> 
+<h3><u>Update Student</u></h3>
+
+<center>
+<h:form>
+<h:panelGrid columns="3" cellpadding="5">
+
+<h:outputLabel for="id" value="Enter ID" />
+<h:inputText id="id" required="true" requiredMessage="Enter ID" value="#{stdbean.id}"/>
+<h:message for="id" style="color:red"/>
+
+<h:outputLabel for="name" value="Enter Name" />
+<h:inputText id="name" required="true" requiredMessage="Enter Name" value="#{stdbean.name}" />
+<h:message for="name" style="color:red"/>
+
+<h:outputLabel for="department" value="Enter Department" />
+<h:inputText id="department" required="true" requiredMessage="Enter Department" value="#{stdbean.department}" />
+<h:message for="department" style="color:red"/>
+
+<h:outputLabel for="password" value="Enter Password" />
+<h:inputSecret id="password" required="true" requiredMessage="Enter Password" value="#{stdbean.password}"/>
+<h:message for="password" style="color:red"/>
+
+<h:outputLabel for="contact" value="Enter Contact" />
+<h:inputText id="contact" required="true" requiredMessage="Enter Contact" validatorMessage="Contact No. must contain 10 digits only" value="#{stdbean.contact}">
+<f:validateRegex pattern="[6789][0-9]{9}"/>
+</h:inputText>
+<h:message for="contact" style="color:red"/>
+
+<h:outputLabel for="update" />
+<h:commandButton value="Update" styleClass="button" action="#{stdbean.update()}"/>
+<h:message />
+</h:panelGrid>
+
+</h:form>
+</center>
+</body> 
+</html>

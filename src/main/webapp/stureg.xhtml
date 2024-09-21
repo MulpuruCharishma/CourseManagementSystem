@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head> 
+<title>Student Registration</title>
+<h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<body> 
+<ui:include src="/index.xhtml" />
+
+<h3 align="center"><u>Student Registration</u></h3>
+
+<center>
+<h:form>
+
+<h:panelGrid columns="3" cellpadding="5">
+<h:outputLabel for="id" value="Enter ID" />
+<h:inputText id="id" required="true" requiredMessage="Enter ID" value="#{stdbean.id}"/>
+<h:message for="id" style="color:red"/>
+
+
+
+
+<h:outputLabel for="name" value="Enter Name" />
+<h:inputText id="name" required="true" requiredMessage="Enter Name" value="#{stdbean.name}"/>
+<h:message for="name" style="color:red"/>
+
+
+<h:outputLabel for="gender" value="Select Gender" />
+<h:selectOneRadio id="gender" required="true" requiredMessage="Select Gender" value="#{stdbean.gender}">
+<f:selectItem itemLabel="Male" itemValue="MALE"/>
+<f:selectItem itemLabel="Female" itemValue="FEMALE"/>
+<f:selectItem itemLabel="Others" itemValue="OTHERS"/>
+</h:selectOneRadio>
+<h:message for="gender" style="color:red"/>
+
+
+<h:outputLabel for="department" value="Select Department" />
+<h:selectOneMenu id="department" required="true" requiredMessage="Select Department" value="#{stdbean.department}">
+<f:selectItem itemLabel="--Select--" itemValue=""/>
+<f:selectItem itemLabel="CSEH" itemValue="CSEH"/>
+<f:selectItem itemLabel="CSER" itemValue="CSER"/>
+<f:selectItem itemLabel="CSIT" itemValue="CSIT"/>
+<f:selectItem itemLabel="ECE" itemValue="ECE"/>
+<f:selectItem itemLabel="AIDS" itemValue="AIDS"/>
+<f:selectItem itemLabel="EEE" itemValue="EEE"/>
+<f:selectItem itemLabel="ECS" itemValue="ECS"/>
+
+</h:selectOneMenu>
+<h:message for="department" style="color:red"/>
+
+
+
+
+<h:outputLabel for="email" value="Enter Email" />
+<h:inputText id="email" required="true" requiredMessage="Enter Email" value="#{stdbean.email}"/>
+<h:message for="email" style="color:red"/>
+
+
+<h:outputLabel for="password" value="Enter Password" />
+<h:inputSecret id="password" required="true" requiredMessage="Enter Password" value="#{stdbean.password}"/>
+<h:message for="password" style="color:red"/>
+
+
+<h:outputLabel for="contact" value="Enter Contact" />
+<h:inputText id="contact" required="true" requiredMessage="Enter Contact" validatorMessage="Contact No must contain 10 digits only" value="#{stdbean.contact}" >
+<f:validateRegex pattern="[6789][0-9]{9}"/>
+</h:inputText>
+<h:message for="contact" style="color:red"/>
+
+
+
+<h:outputLabel for="add"/>
+<h:commandButton id="add" styleClass="button,body" value="Submit" action="#{stdbean.add()}"/>
+<h:message for="add"/>
+
+</h:panelGrid>
+
+</h:form>
+</center>
+</body> 
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head> 
+<title>Student Login</title>
+<h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<body> 
+<ui:include src="/index.xhtml" />
+<h3 align="center"><u>Student Login</u></h3>
+
+<center>
+<h:form>
+<h:panelGrid columns="3" cellpadding="5">
+
+
+<h:outputLabel for="email" value="Enter Email" />
+<h:inputText id="email" validatorMessage="Email is Mandatory"  value="#{stdbean.email}">
+<f:validateRequired />
+</h:inputText>
+<h:message for="email" style="color:red"/>
+
+
+<h:outputLabel for="password" value="Enter Password" />
+<h:inputSecret id="password" validatorMessage="Password length must be in between 3 and 30" value="#{stdbean.password}">
+<f:validateLength minimum="3" maximum="30"/>
+</h:inputSecret>
+<h:message for="password" style="color:red"/>
+
+
+
+
+<h:outputLabel for="login"/>
+<h:commandButton id="login" styleClass="button" value="Login" action="#{stdbean.validatelogin()}"/>
+<h:message for="login"/>
+
+</h:panelGrid>
+</h:form>
+</center>
+</body> 
+</html>
